@@ -1,4 +1,4 @@
-# 💎 CommentMiner.ai
+# 💎 CommentMiner
 
 **Stop guessing what your audience thinks. Start mining the gold in your comments.**
 
