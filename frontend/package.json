@@ -1,0 +1,12 @@
+{
+  "name": "commentminer-frontend",
+  "version": "1.0.0",
+  "description": "Premium dashboard for CommentMiner",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'No build step required for static assets'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
