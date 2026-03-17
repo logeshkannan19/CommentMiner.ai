@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommentMiner | AI Product Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <header>
+        <div class="logo">💎 CommentMiner</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#demo">Demo</a>
+            <button class="btn-primary">Get Started</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Stop Guessing. <span class="gradient-text">Start Listening.</span></h1>
+            <p>CommentMiner uses AI to turn the noise of YouTube comments into clear, actionable product intelligence. Know exactly what your users want, in seconds.</p>
+            
+            <div class="search-container">
+                <input type="text" id="video-url" placeholder="Paste a YouTube link to get started...">
+                <button id="analyze-btn">Analyze Comments</button>
+            </div>
+        </section>
+
+        <section id="results" class="hidden">
+            <div class="dashboard">
+                <div class="card sentiment">
+                    <h3>Sentiment</h3>
+                    <div class="sentiment-bar">
+                        <div class="positive" style="width: 70%"></div>
+                        <div class="neutral" style="width: 20%"></div>
+                        <div class="negative" style="width: 10%"></div>
+                    </div>
+                </div>
+                <div class="card topics">
+                    <h3>Top Topics</h3>
+                    <ul id="topic-list"></ul>
+                </div>
+                <div class="card summary">
+                    <h3>AI Summary</h3>
+                    <p id="ai-summary"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
