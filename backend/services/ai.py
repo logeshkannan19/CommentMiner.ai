@@ -7,13 +7,21 @@ from models.schemas import AnalysisResult
 
 load_dotenv()
 
-client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+_client = None
+
+def get_ai_client():
+    global _client
+    if _client is None:
+        api_key = os.getenv("OPENAI_API_KEY") or "dummy_key_for_testing"
+        _client = AsyncOpenAI(api_key=api_key)
+    return _client
 
 async def analyze_comments(comments: List[str]) -> AnalysisResult:
     """
     Analyzes a list of YouTube comments to extract product intelligence.
     We use OpenAI to categorize sentiment, identify topics, and spot specific requests.
     """
+    client = get_ai_client()
     if not comments:
         return AnalysisResult(
             sentiment={"positive": 0, "neutral": 0, "negative": 0},
