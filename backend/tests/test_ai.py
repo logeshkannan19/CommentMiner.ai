@@ -5,11 +5,13 @@ from models.schemas import AnalysisResult
 
 @pytest.mark.asyncio
 @patch("services.ai.get_ai_client")
-async def test_analyze_comments_empty(mock_get_client, mock_create):
-    # Setup mock
+async def test_analyze_comments_empty(mock_get_ai_client):
+    # Setup mock client
     mock_client = AsyncMock()
-    mock_get_client.return_value = mock_client
+    # The client has a chat.completions.create method
+    mock_create = AsyncMock()
     mock_client.chat.completions.create = mock_create
+    mock_get_ai_client.return_value = mock_client
     
     # Test with empty comments list
     result = await analyze_comments([])
@@ -19,11 +21,12 @@ async def test_analyze_comments_empty(mock_get_client, mock_create):
 
 @pytest.mark.asyncio
 @patch("services.ai.get_ai_client")
-async def test_analyze_comments_mock(mock_get_client, mock_create):
-    # Setup mock
+async def test_analyze_comments_mock(mock_get_ai_client):
+    # Setup mock client
     mock_client = AsyncMock()
-    mock_get_client.return_value = mock_client
+    mock_create = AsyncMock()
     mock_client.chat.completions.create = mock_create
+    mock_get_ai_client.return_value = mock_client
     
     # Mock OpenAI response
     mock_response = AsyncMock()
